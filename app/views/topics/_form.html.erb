@@ -1,0 +1,51 @@
+<%= form_for @topic do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@topic.errors.count, "error") %> prohibited
+        this proposal from being saved:
+      </h2>
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+</p>
+     <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :value => current_user.name  %>
+  </p>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :proposal %><br>
+    <%= f.text_area :proposal %>
+  </p>
+
+  <p>
+<!--    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %> -->
+  </p>
+<h2 style="color:red;"> Register your Vote</h2>
+<p>
+  Please vote on your proposal by first deleting the existing entry (most
+   likely "Notvoted") then entering For, Against, Undecided or N/a ( for
+   cases where a vote is not expected).  Please write just the one word exactly
+    as written here in the space below.
+</p>
+<p>
+  This is the best place for the proposer to vote, other members will be asked
+   to do so elsewhere.
+</p>
+   <p>
+    <%=f.label :"#{current_user.name}_vote".to_sym%>
+    <%= f.text_field :"#{current_user.name}_vote".to_sym%>
+  </p>
+<p>
+    <%= f.submit "Submit Proposal & Vote", class: "btn btn-primary btn-lg" %>
+</p>
+<%end%>
