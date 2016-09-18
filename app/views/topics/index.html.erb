@@ -1,5 +1,12 @@
 <h1>Listing Proposals</h1>
 <%= link_to 'Submit New Proposal', new_topic_path %>
+<style>
+table, th, td {
+    border: 1px solid black;
+}th, td {
+    padding: 5px;
+}
+</style>
 <%if !current_user.admin%>
   <table style= "width:80%">
   <tr>
