@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-   def send_alert
+   def send_alert(topic)
      @topic = Topic.new(topic_params)
      users = User.all
      users.each do |u|
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
    def create
     @topic = Topic.new(topic_params)
     if @topic.save
-       send_alert
+       send_alert(@topic)
        flash[:info] = "New Topic alert emails sent."
        redirect_to root_url
     else
