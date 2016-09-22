@@ -10,7 +10,6 @@ def comment_response(topic)
   def create
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.create(comment_params)
-    redirect_to topic_path(@topic)
     @originator= @topic[:name]
     if @comment.save
        comment_response(@topic)
