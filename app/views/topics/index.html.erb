@@ -7,7 +7,9 @@ table, th, td {
     padding: 5px;
 }
 </style>
+
 <%if !current_user.admin%>
+
   <table style= "width:80%">
   <tr>
     <th>Name</th>
@@ -28,6 +30,7 @@ table, th, td {
     <%end%>
   </table>
   <%else%>
+
     <table style= "width:80%"">
     <tr>
       <th>Name</th>
@@ -38,14 +41,15 @@ table, th, td {
 
     <% @topics.each do |topic| %>
     <tr>
-      <td><%= topic.name %></td>
-      <td><%= topic.title %></td>
+      <td style="vertical-align:text-top;"><%= topic.name %></td>
+      <td style="vertical-align:text-top;"><%= topic.title %></td>
       <td><%= topic.proposal %></td>
-      <td><%= link_to 'Show', topic_path(topic) %></td>
+      <td style="vertical-align:text-top;"><%= link_to 'Show', topic_path(topic) %></td>
       <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
       <td><%= link_to 'Destroy', topic_path(topic),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+
 
     </tr>
   <%end%>

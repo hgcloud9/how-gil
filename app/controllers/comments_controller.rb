@@ -22,7 +22,6 @@ def comment_response(topic)
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.find(params[:id])
     @comment.destroy
-#    redirect_to topic_path(@topic)
      redirect_to root_url
   end
 

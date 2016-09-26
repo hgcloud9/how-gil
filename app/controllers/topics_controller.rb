@@ -10,19 +10,23 @@ class TopicsController < ApplicationController
 
    def index
     @topics = Topic.all
+    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]
   end
 
   def show
     @topic = Topic.find(params[:id])
+    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]  
   end
 
   def new
     @topic = Topic.new
+    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]
   end
 
   def edit
     @topic = Topic.find(params[:id])
   end
+
    def create
     @topic = Topic.new(topic_params)
     if @topic.save

@@ -32,10 +32,8 @@
   </p>
 <h2 style="color:red;"> Register your Vote</h2>
 <p>
-  Please vote on your proposal by first deleting the existing entry (most
-   likely "Notvoted") then entering For, Against, Undecided or N/a ( for
-   cases where a vote is not expected).  Please write just the one word exactly
-    as written here in the space below.
+  Please vote on your proposal by selecting "For, Against, Undecided or N/a
+   ( for cases where a vote is not appropriate)".  Then click the submit button.
 </p>
 <p>
   This is the best place for the proposer to vote, other members will be asked
@@ -43,9 +41,9 @@
 </p>
    <p>
     <%=f.label :"#{current_user.name}_vote".to_sym%>
-    <%= f.text_field :"#{current_user.name}_vote".to_sym%>
+    <div style='width: 200px'><%=f.select  "#{current_user.name}_vote".to_sym, options_for_select(@votes) %></div>
   </p>
 <p>
-    <%= f.submit "Submit Proposal & Vote", class: "btn btn-primary btn-lg" %>
+    <div style='width: 400px'><%= f.submit "Submit Proposal & Vote", class: "btn btn-primary btn-lg" %></div>
 </p>
 <%end%>
