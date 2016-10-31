@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    @user_options = User.all.map{ |u| [ u.name, u.id ] }
   end
   def show
     @name=current_user.name

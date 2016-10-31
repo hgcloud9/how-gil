@@ -2,27 +2,27 @@
 <p>
   <style>
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid green;
 }th, td {
     padding: 5px;
 }
 </style>
-  <table style="width:80%;" %>
+  <table style="width:80%; margin: auto; border:"" %>
     <tr>
   <th>Name:</th>
   <th>Title:</th>
   <th>Proposal:</th>
 </tr>
 <tr>
-  <td style="vertical-align:text-top;" ><%= @topic.name %></td>
-  <td style="vertical-align:text-top;"><%= @topic.title %></td>
+  <td><%= @topic.name %></td>
+  <td><%= @topic.title %></td>
   <td> <%= @topic.proposal %></td>
 </table>
 
 <h1 style="color:green;">Votes to date</h1>
 
 
-<table style= "width:80%">
+<table style= "width:80; margin: auto;"%>
 <tr>
     <% Topic.listings.each do |listing| %>
       <th><%= listing %></th>
@@ -42,7 +42,6 @@ table, th, td {
 </table>
 
 <h1 style="color:green;">Comments to date</h1>
-<%= render @topic.comments %>
+<%= render @topic.comments.reverse_order %>
 <h1 style="color:red;" > Make comments</h1>
-
 <%= render 'comments/form' %>

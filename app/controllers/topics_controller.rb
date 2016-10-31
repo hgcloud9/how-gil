@@ -9,13 +9,13 @@ class TopicsController < ApplicationController
    end
 
    def index
-    @topics = Topic.all
+    @topics = Topic.all.sort_by {|obj| obj.created_at }.reverse
     @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]
   end
 
   def show
     @topic = Topic.find(params[:id])
-    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]  
+    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]
   end
 
   def new
@@ -25,6 +25,7 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    @votes=["Not Voted", "For", "Against", "Undecided", "N/a" ]
   end
 
    def create
@@ -54,11 +55,8 @@ class TopicsController < ApplicationController
     redirect_to topics_path
   end
 
-  def vote
-  end
-
   private
     def topic_params
-      params.require(:topic).permit(:name, :title, :proposal,:"#{current_user.name}_vote".to_sym )
+      params.require(:topic).permit(:name, :title, :proposal,:"#{current_user.name}_vote".to_sym)
     end
 end

@@ -12,6 +12,15 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+.button{
+  color: #ffffff;
+  background-color: #9999ff;
+  width: 200px;
+  height: 100px;
+  margin: auto;
+  /*add any other properties you want to style*/
+}
+
 body {
   padding-top: 60px;
 }

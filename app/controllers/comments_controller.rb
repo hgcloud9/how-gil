@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-def comment_response(topic)
+  def comment_response(topic)
        @topic=topic
        @originator= @topic[:name]
        @proposal=@topic[:title]

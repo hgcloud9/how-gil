@@ -40,10 +40,10 @@
    to do so elsewhere.
 </p>
    <p>
-    <%=f.label :"#{current_user.name}_vote".to_sym%>
-    <div style='width: 200px'><%=f.select  "#{current_user.name}_vote".to_sym, options_for_select(@votes) %></div>
+    <div style='width: 400px; margin: auto'><%=f.label :"#{current_user.name}_vote".to_sym%></div>
+    <div style='width: 200px; margin: auto'><%=f.select  "#{current_user.name}_vote".to_sym, options_for_select(@votes) %></div>
   </p>
 <p>
-    <div style='width: 400px'><%= f.submit "Submit Proposal & Vote", class: "btn btn-primary btn-lg" %></div>
+    <div style='width: 400px; margin: auto'><%= f.submit "Submit Proposal & Vote", class: "btn btn-primary btn-lg" %></div>
 </p>
 <%end%>

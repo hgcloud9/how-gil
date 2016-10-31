@@ -1,6 +1,6 @@
 class CommentMailer < ApplicationMailer
 
-  layout "mailer"
+layout "mailer"
 
     def new_comment_response(topic,originator)
        @topic=topic
